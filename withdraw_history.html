@@ -3,13 +3,19 @@
 <link rel="stylesheet" href="loader.css">
 <link rel="stylesheet" href="style.css">
 <style>
-    .status-processing { background-color: #ffa500; color: }
-    .status-approve { background-color: #008000; color: }
-    .status-reject { background-color: #ff0000; color: }
-    .status-processing , .status-reject , .status-approve { color: #fff; text-align: center; font-weight: 400; padding: 5px; border-radius: 125px; }
+    .status-processing { background-color: #ffa500; color: #fff; }
+    .status-approve { background-color: #008000; color: #fff; }
+    .status-reject { background-color: #ff0000; color: #fff; }
+    .status-processing, .status-reject, .status-approve {
+        text-align: center;
+        font-weight: 400;
+        padding: 5px;
+        border-radius: 125px;
+    }
     #withdrawContainer { display: flex; flex-direction: column; padding: 10px; gap: 10px; }
     .card { display: flex; gap: 10px; flex-direction: column; padding: 10px; background: #10364e; border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
     .form { text-align: center; }
+    #withdrawContainer > p { position: fixed; width: 100%; top: 50%; text-align: center; }
 </style>
 <div class="form">
     <h2>Withdrawal History</h2>
@@ -62,10 +68,10 @@
                 let status = document.createElement("div");
                 status.classList.add("status");
                 
-                if (row.status === "Approve") {
+                if (row.status === "Accepted") {
                     status.classList.add("status-approve");
-                    status.textContent = "Approved";
-                } else if (row.status === "Reject") {
+                    status.textContent = "Accepted";
+                } else if (row.status === "Rejected") {
                     status.classList.add("status-reject");
                     status.textContent = "Rejected";
                 } else {
